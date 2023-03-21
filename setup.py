@@ -1,18 +1,18 @@
 """Install packages as defined in this file into the Python environment."""
-from setuptools import setup
+import setuptools
 
-setup(
-    name="pyinitgen",
-    author="M-307",
-    author_email="me@m307.dev",
-    description="A python __init__ generator",
-    version='0.0.1',
-    install_requires=[
-        "setuptools>=45.0",
-    ],
-    classifiers=[
-        "Development Status :: 1 - Planning",
-        "Programming Language :: Python :: 3.0",
-        "Topic :: Utilities",
-    ],
+setuptools.setup(
+	name="pyinitgen",
+	version='0.0.1',
+	author="M-307",
+	author_email="me@m307.dev",
+	description="A python __init__ generator",
+	packages=setuptools.find_packages(),
+	classifiers=[
+		"Programming Language :: Python :: 3",
+		"License :: OSI Approved :: MIT License",
+		"Operating System :: OS Independent",
+	],
+	python_requires=">=3.6",
+	include_package_data=True
 )
