@@ -4,7 +4,9 @@ from argparse import ArgumentParser
 
 if __name__ == '__main__':
     parser = ArgumentParser()
-    parser.add_argument("-p", "--path", required=False)
+    parser.add_argument("-p", "--path", required=False, help="Path for generate __init__.py")
+    parser.add_argument("-f", "--force", required=False, help="Force replace __init__.py", default=False, action='store_true')
+
     args = parser.parse_args()
     
     # Prepare data
@@ -28,7 +30,7 @@ if __name__ == '__main__':
         exit(1)
 
     # Check if __init__.py exist
-    if os.path.exists(FULL_INIT):
+    if os.path.exists(FULL_INIT) and not args.force:
         try:
             print("\33[43m!!Warning!!\33[0m")
             print("\33[33mThere __init__.py exist in ",FULL_INIT,"\33[0m\n")
