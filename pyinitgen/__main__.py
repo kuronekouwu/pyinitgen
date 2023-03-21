@@ -22,7 +22,7 @@ if __name__ == '__main__':
         if file.endswith(".py") and os.path.isfile(os.path.join(FULL_PATH, file)):
             info = file.split(".")
             if not info[0] in ["__init__", "__main__"]:
-                RAW_FILE += f"from {info[0]} import *\n"
+                RAW_FILE += f"from .{info[0]} import *\n"
                 COUNT += 1
 
     if COUNT == 0:
